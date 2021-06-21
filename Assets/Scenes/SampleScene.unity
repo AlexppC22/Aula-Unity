@@ -136,7 +136,7 @@ GameObject:
   - component: {fileID: 300188177}
   - component: {fileID: 300188176}
   m_Layer: 0
-  m_Name: Idle
+  m_Name: Porta
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
