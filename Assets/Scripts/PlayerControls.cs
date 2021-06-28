@@ -15,7 +15,9 @@ public class PlayerControls : MonoBehaviour
 	[Header("Pulo")]
 	public CapsuleCollider2D playerCollider;
 	public LayerMask groundLayer;
-    #endregion
+	#endregion
+
+	public GameObject pauseMenu;
 
     void Update()
 	{
@@ -24,8 +26,22 @@ public class PlayerControls : MonoBehaviour
         {              
             rb.AddForce(new Vector2(0f, forçaPulo));
         }
+		if(Input.GetKeyDown(KeyCode.Escape))
+        {
+			PauseGame();
+
+		}
     }
-    
+
+	public void PauseGame()
+    {
+		if (pauseMenu.activeInHierarchy)
+		{
+			pauseMenu.SetActive(false);
+		}
+		else
+			pauseMenu.SetActive(true);
+    }
     void FixedUpdate()
 	{
 		Vector3 targetVelocity = new Vector2(movHorizontal, rb.velocity.y);
