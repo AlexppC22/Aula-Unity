@@ -22,7 +22,7 @@ public class PlayerControls : MonoBehaviour
     void Update()
 	{
 		movHorizontal = Input.GetAxisRaw("Horizontal") * velocidadeMov;
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) && TaNoChao())
         {              
             rb.AddForce(new Vector2(0f, forçaPulo));
         }
