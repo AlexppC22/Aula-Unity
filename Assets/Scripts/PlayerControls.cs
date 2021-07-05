@@ -37,10 +37,14 @@ public class PlayerControls : MonoBehaviour
     {
 		if (pauseMenu.activeInHierarchy)
 		{
+			Time.timeScale = 1;
 			pauseMenu.SetActive(false);
 		}
-		else
+		else	
+        {
 			pauseMenu.SetActive(true);
+			Time.timeScale = 0;
+		}
     }
     void FixedUpdate()
 	{
