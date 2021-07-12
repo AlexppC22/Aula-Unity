@@ -6,6 +6,7 @@ public class PlayerControls : MonoBehaviour
 {
 	[Header("Referencias")]
 	public Rigidbody2D rb;
+	public Animator playerAnimator;
 	[Header("Mov. Horizontal")]
 	public float velocidadeMov = 10;
 	float movHorizontal = 0;
@@ -22,7 +23,18 @@ public class PlayerControls : MonoBehaviour
     void Update()
 	{
 		movHorizontal = Input.GetAxisRaw("Horizontal") * velocidadeMov;
-        if (Input.GetKeyDown(KeyCode.Space) && TaNoChao())
+        if (movHorizontal != 0)
+        {
+			playerAnimator.SetBool("andando", true);
+
+        }
+		else
+        {
+			playerAnimator.SetBool("andando", false);
+
+        }
+
+		if (Input.GetKeyDown(KeyCode.Space) && TaNoChao())
         {              
             rb.AddForce(new Vector2(0f, forçaPulo));
         }

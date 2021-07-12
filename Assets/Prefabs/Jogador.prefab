@@ -126,7 +126,7 @@ Rigidbody2D:
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 3
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 92615a53aa649114f8a91b1aa8b37220, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
@@ -160,6 +160,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 6039155031721417751}
+  playerAnimator: {fileID: 6039155031721417748}
   velocidadeMov: 10
   "for\xE7aPulo": 600
   playerCollider: {fileID: 6039155031721417750}
