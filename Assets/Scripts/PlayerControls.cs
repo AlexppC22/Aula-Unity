@@ -10,6 +10,7 @@ public class PlayerControls : MonoBehaviour
 	[Header("Mov. Horizontal")]
 	public float velocidadeMov = 10;
 	float movHorizontal = 0;
+	bool olhandodireita;
 
 	public float forçaPulo = 400f;
 	#region Hide
@@ -29,12 +30,19 @@ public class PlayerControls : MonoBehaviour
 
         }
 		else
-        {
+		{
 			playerAnimator.SetBool("andando", false);
-
         }
-
-		if (Input.GetKeyDown(KeyCode.Space) && TaNoChao())
+		if (movHorizontal < 0 && olhandodireita == false)
+        {
+			Flip();
+        }
+		else if (movHorizontal > 0 && olhandodireita == true)
+		{
+			
+			Flip();
+		}
+			if (Input.GetKeyDown(KeyCode.Space) && TaNoChao())
         {              
             rb.AddForce(new Vector2(0f, forçaPulo));
         }
@@ -63,6 +71,15 @@ public class PlayerControls : MonoBehaviour
 		Vector3 targetVelocity = new Vector2(movHorizontal, rb.velocity.y);
 		rb.velocity = targetVelocity;
 	}
+
+	public void Flip()
+    {
+		olhandodireita = !olhandodireita;
+			Vector3 escalaAtual = transform.localScale;
+			escalaAtual.x *= -1;
+			transform.localScale = escalaAtual;
+	}
+
 	#region Hide 
 	private bool TaNoChao()
     {
