@@ -45,13 +45,16 @@ public class PlayerControls : MonoBehaviour
 			if (Input.GetKeyDown(KeyCode.Space) && TaNoChao())
         {              
             rb.AddForce(new Vector2(0f, forçaPulo));
-        }
+	        }
 		if(Input.GetKeyDown(KeyCode.Escape))
         {
 			PauseGame();
 
+		
 		}
-    }
+		playerAnimator.SetBool("pulando", !TaNoChao());
+	}
+
 
 	public void PauseGame()
     {
@@ -80,7 +83,6 @@ public class PlayerControls : MonoBehaviour
 			transform.localScale = escalaAtual;
 	}
 
-	#region Hide 
 	private bool TaNoChao()
     {
 		RaycastHit2D raycast = Physics2D.Raycast
@@ -90,5 +92,5 @@ public class PlayerControls : MonoBehaviour
 			groundLayer);
 		return raycast.collider != null;
     }
-    #endregion
+  
 }
