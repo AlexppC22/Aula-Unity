@@ -11,6 +11,8 @@ public class PlayerControls : MonoBehaviour
 	public float velocidadeMov = 10;
 	float movHorizontal = 0;
 	bool olhandodireita;
+	public AudioSource playerSFX;
+	public AudioClip playerDeathSFX;
 
 	public float forçaPulo = 400f;
 	#region Hide
@@ -92,5 +94,20 @@ public class PlayerControls : MonoBehaviour
 			groundLayer);
 		return raycast.collider != null;
     }
-  
+
+	private void OnCollisionEnter2D(Collision2D collision)
+    {
+		if (collision.transform.tag == "serra")
+        {
+			playerSFX.clip = playerDeathSFX;
+			playerSFX.Play();
+        }
+    }
+
+
+
+
 }
+
+
+
