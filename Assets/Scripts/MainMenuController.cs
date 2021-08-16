@@ -2,13 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Audio;
 
 public class MainMenuController : MonoBehaviour
 {
     [SerializeField] GameObject mainMenuCanvas;
     [SerializeField] GameObject creditsCanvas;
     [SerializeField] GameObject settingsCanvas;
-
+    public Slider audioSlider;
+    public AudioMixerGroup mixer;
     public AudioSource interfaceSFX;
     public void GoToMenuButton(int index)
     {
@@ -24,5 +26,9 @@ public class MainMenuController : MonoBehaviour
                 creditsCanvas.SetActive(true);
                 break;
         }
+    }
+    private void Update()
+    {
+
     }
 }
